@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
-from translation import translate_text, to_jeringoza
+from .translation import translate_text, to_jeringoza
 
 app = FastAPI()
 
