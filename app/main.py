@@ -1,14 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 from app.translation import translate_text, to_jeringoza
 
 app = FastAPI()
 
+# Get allowed origins from environment variable or use default for development
+allowed_origins = os.environ.get("ALLOWED_ORIGINS", "*").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Frontend dev server
+    allow_origins=allowed_origins,  # Use environment variable in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
