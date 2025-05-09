@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
-from .translation import translate_text, to_jeringoza
+from app.translation import translate_text, to_jeringoza
 
 app = FastAPI()
 
